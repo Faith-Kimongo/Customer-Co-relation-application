@@ -6,31 +6,26 @@
 
     <title>@yield('title', 'Learning Laravel 5.8')</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<ul class="nav">
-    <li class="nav-item">
-
-    <a class="nav-link" href="/">Home</a>
-</li>
-
-<li class="nav-item">
-    <a class="nav-link" href="about">About Us</a>
-</li>
-    <li class="nav-item">
-        <a class="nav-link" href="contact-us">Contact Us</a>
-    </li>
-    <li>
-        <a class="nav-link" href="customers">Customer List</a>
-    </li>
-</ul>
-
 <div class="container">
+
+    @include('nav')
+
+    @if(session()->has('message'))
+        <div class="alert alert-success" role="alert">
+            <strong>Success</strong> {{ session()->get('message') }}
+        </div>
+    @endif
+
+    
+
     @yield('content')
 </div>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </body>
 </html>
